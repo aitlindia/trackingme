@@ -1,0 +1,39 @@
+extends ../layout
+        
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+        h1 New User
+
+  form.form-horizontal
+    .form-group
+      label.col-sm-2.control-label Email
+      .col-sm-10
+        input.form-control(type="email", placeholder="Email")
+    
+    .form-group
+      label.col-sm-2.control-label Name
+      .col-sm-10
+        input.form-control(placeholder="Name")
+
+    .form-group
+      label.col-sm-2.control-label Company
+      .col-sm-10
+        input.form-control(placeholder="Comapany Name")
+
+    .form-group
+      label.col-sm-2.control-label Phone
+      .col-sm-10
+        input.form-control(placeholder="Phone")
+
+    .form-group
+      label.col-sm-2.control-label Country
+      .col-sm-10
+        input.form-control(placeholder="Country")
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-default(type="submit") Save
+        &nbsp;
+        button.btn.btn-default(type="reset") Cancel

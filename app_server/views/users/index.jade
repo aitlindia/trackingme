@@ -1,0 +1,34 @@
+extends ../layout
+        
+block content
+  #banner.page-header
+    .row
+     .col-lg-6
+       h1 Users    
+       a(href="/users/new", class="btn btn-primary")  
+         span.glyphicon.glyphicon-plus
+         Add New User
+
+  table.table
+    thead
+      th Username  
+      th Status
+      th Name
+      th Company
+      th Phone 
+      th Country
+    tbody
+      tr
+        td Nayna  
+        td Active
+        td Nayna
+        td 
+        td 88888888
+        td India
+      tr
+        td N. Agarwal
+        td Active
+        td Nayna
+        td 
+        td 88888888
+        td India
