@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://localhost/Loc8r';
+var dbURI = 'mongodb://ds161475.mlab.com:61475/heroku_b12tnnk7';
 mongoose.connect(dbURI);
 
 var gracefulShutdown = function (msg, callback) {
