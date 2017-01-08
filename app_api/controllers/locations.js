@@ -7,8 +7,22 @@ var sendJsonResponse = function(res, status, content) {
 }
  
 module.exports.locationsList = function (req, res) {
+  filter = {};
+  if(req.query && req.query.imei_no) {
+    filter["imei_no"] = req.query.imei_no
+  }
+
+  if(req.query && req.query.from_date && req.query.to_date) {
+    filter["gps_date"] = {"$gte": parseInt(req.query.from_date), "$lte": parseInt(req.query.to_date)}
+  }
+  
+  if(req.query && req.query.time_from && req.query.time_to) {
+    filter["gps_time"] = {$gte: parseInt(req.query.from_time), $lte: parseInt(req.query.to_time)}
+  }
+  
+  console.log(filter);
   Loc
-    .find()
+    .find(filter)
     .exec(function(err, locations){
       if(err) {
         sendJsonResponse(res, 404, {"message" : "not found"});
@@ -66,9 +80,11 @@ module.exports.locationsCreate = function(req, res) {
     digital_inputs: parseFloat(req.body.info.split("#")[21])
   }, function(err, location){
     if(err) {
-      sendJsonResponse(res, 400, err);
+      res.status(400);
+      res.send(err)
     } else {
-      sendJsonResponse(res, 201, location);
+      res.status(201);
+      res.send("Success");
     }
   });
 }
